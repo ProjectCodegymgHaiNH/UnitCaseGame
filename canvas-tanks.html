@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas Tanks</title>
+</head>
+<body>
+<canvas id="canvasTanks" style="border: 1px solid #000"></canvas>
+
+<script>
+    const canvas = document.getElementById("canvasTanks")
+    const ctx = canvas.getContext("2d")
+    canvas.width = 800
+    canvas.height = 600
+
+    let Tanks = function (x, y, xV, yV, size) {
+        this.x = x || 50
+        this.y = y || 50
+        this.xVelocity = xV || 0
+        this.yVelocity = yV || 0
+        this.size = size || 10
+        this.nextStage = function () {
+            return new Tanks(this.x + this.xVelocity, this.y + this.yVelocity, this.xVelocity, this.yVelocity, this.size)
+        }
+        this.setVelocity = function (xV, yV) {
+            this.xVelocity = xV
+            this.yVelocity = yV
+        }
+    }
+
+    let tank = [new Tanks(), new Tanks, new Tanks()]
+    for (let t of tank) {
+        t.setVelocity(Math.round(Math.random() * 10 - 5), Math.round(Math.random() * 10 - 5))
+    }
+
+
+    function drawTanks(tank) {
+        ctx.beginPath()
+        ctx.arc(tank.x, tank.y, tank.size, 0, 2 * Math.PI)
+        ctx.strokeStyle = "black"
+        ctx.fillStyle = "black"
+        ctx.stroke()
+        ctx.fill()
+    }
+
+    _()
+
+    function _() {
+        drawTanks(tank)
+        setTimeout(function () {
+
+            tank = tank.nextStage()
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
+            _()
+        }, 50)
+        console.log("Tanks move " + tank.x + " - " + tank.y)
+    }
+</script>
+</body>
+</html>
