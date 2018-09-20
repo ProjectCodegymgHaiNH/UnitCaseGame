@@ -9,11 +9,11 @@
 
 <script>
     const canvas = document.getElementById('myCanvas');
-    const ctx  = canvas.getContext("2d")
+    const ctx = canvas.getContext("2d")
     canvas.width = 800
     canvas.height = 600
 
-    let Ball = function(x,y,size, xVelo, yVelo) {
+    let Ball = function (x, y, size, xVelo, yVelo) {
         this.x = x || 400
         this.y = y || 300
         this.size = size || 20
@@ -24,31 +24,32 @@
             this.x += this.xVelo
             this.y += this.yVelo
 
-            let reachLeft = this.x - this.size <=0
+            let reachLeft = this.x - this.size <= 0
             let reachRight = this.x + this.size >= canvas.width
-            if (reachLeft || reachRight){
+            if (reachLeft || reachRight) {
                 this.xVelo = -this.xVelo
             }
-            let reachTop = this.y - this.size <=0
-            let reachBottom = this.y - this.size >= canvas.height
-            if(reachTop || reachBottom){
-                this.yVelo = - this.yVelo
+            let reachTop = this.y - this.size <= 0
+            let reachBottom = this.y + this.size >= canvas.height
+            if (reachTop || reachBottom) {
+                this.yVelo = -this.yVelo
             }
         }
 
         this.drawBall = function () {
             const ANGLE_START = 0
-            const ANGLE_END = 2*Math.PI
+            const ANGLE_END = 2 * Math.PI
             ctx.beginPath()
-            ctx.arc(this.x,this.y,this.size, ANGLE_START, ANGLE_END)
+            ctx.arc(this.x, this.y, this.size, ANGLE_START, ANGLE_END)
             ctx.strokeStyle = "red"
-            ctx.fillStyle =  "black"
+            ctx.fillStyle = "black"
             ctx.stroke()
             ctx.fill()
         }
     }
     let ball = new Ball()
     window.requestAnimationFrame(stepping)
+
     function stepping() {               //auto di chuyển
         dim()
         ball.drawBall()
@@ -57,7 +58,7 @@
 
         function dim() {                //xóa vệt đuôi
             ctx.fillStyle = "white"
-            ctx.fillRect(0,0,canvas.width, canvas.height)
+            ctx.fillRect(0, 0, canvas.width, canvas.height)
         }
     }
 

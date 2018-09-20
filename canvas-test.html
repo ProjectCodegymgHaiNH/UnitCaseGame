@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas Tanks</title>
+    <script>
+        const COLOR = ["#551A8B","#FF0000","#FF4500","#FFA500", "#F5DEB3","#66CD00","#20B2AA","#00FF7F","#0000FF","#000000"]
+    </script>
+</head>
+<body>
+<canvas id="canvasTanks" style="border: 1px solid #000"></canvas>
+
+<script>
+    const canvas = document.getElementById("canvasTanks")
+    const ctx = canvas.getContext("2d")
+    canvas.width = 800
+    canvas.height = 600
+
+    let Tanks = function (x, y, xV, yV, size) {
+        this.x = x || Math.floor(Math.random() * 800)
+        this.y = y || Math.floor(Math.random() * 600)
+        this.xVelocity = xV || 0
+        this.yVelocity = yV || 0
+        this.size = size || 30
+        this.nextStage = function () {
+            return new Tanks(this.x + this.xVelocity, this.y + this.yVelocity, this.xVelocity, this.yVelocity, this.size)
+        }
+        this.setVelocity = function (xV, yV) {
+            this.xVelocity = xV
+            this.yVelocity = yV
+        }
+    }
+
+    let tank = [new Tanks(),new Tanks(),new Tanks()]
+    for (t of tank){
+        t.setVelocity(Math.floor(Math.random() * 5 - 5), Math.floor(Math.random() * 5 - 5))
+    }
+
+    _()
+
+    function drawTanks(tank) {
+        ctx.beginPath()
+        ctx.arc(tank.x, tank.y, tank.size, 0, 2 * Math.PI, false)
+        ctx.strokeStyle = "black"
+        ctx.fillStyle = "#FF4500"
+        ctx.stroke()
+        ctx.fill()
+    }
+
+    function _() {
+        for (let t of tank) {
+            drawTanks(t)
+        }
+        setTimeout(function () {
+            tank = moveBall()
+            touchBall()
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
+            _()
+        }, 10)
+
+    }
+    function moveBall() {
+        let newtank = []
+        for (let t of tank) {
+            if (t.x > canvas.width) {
+                t.x = canvas.width - (t.size*2)
+            }
+            if (t.x - t.size <= 0 || t.y -  t.size < 0) {
+                t.setVelocity(Math.floor(Math.random() * 5 + 10), Math.floor(Math.random() *  5 + 5))
+            } else if (t.x  >= canvas.width - t.size || t.y >= canvas.height - t.size) {
+                t.setVelocity(Math.floor(Math.random() * -10 + 5), Math.floor(Math.random() * -10 + 5))
+            }
+            t.nextStage()
+            newtank.push(t.nextStage())
+        }
+        return newtank
+    }
+
+    function touchBall() {
+        for (let i=0;i<tank.length -1; i++){
+            if (tank[i].x + tank[i].size == tank[tank.length -1].x + tank[tank.length -1].size
+                || tank[i].y+ tank[i].size == tank[tank.length -1].y+ tank[tank.length -1].size){
+                tank[i].setVelocity(Math.floor(Math.random() * 10), Math.floor(Math.random() * -10))
+            }
+            console.log(tank[i].x +" "+tank[i].y)
+        }
+    }
+
+</script>
+</body>
+</html>
