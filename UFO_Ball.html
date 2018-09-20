@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UFO Shot Ball fly</title>
+</head>
+<body>
+<canvas id="myCanvas" style="border: 1px solid #000"></canvas>
+
+<script>
+    const canvas = document.getElementById('myCanvas');
+    const ctx  = canvas.getContext("2d")
+    canvas.width = 800
+    canvas.height = 600
+
+    let Ball = function(x,y,size, xVelo, yVelo) {
+        this.x = x || 400
+        this.y = y || 300
+        this.size = size || 20
+        this.xVelo = xVelo || 3
+        this.yVelo = yVelo || 1
+
+        this.roll = function () {
+            this.x += this.xVelo
+            this.y += this.yVelo
+
+            let reachLeft = this.x - this.size <=0
+            let reachRight = this.x + this.size >= canvas.width
+            if (reachLeft || reachRight){
+                this.xVelo = -this.xVelo
+            }
+            let reachTop = this.y - this.size <=0
+            let reachBottom = this.y - this.size >= canvas.height
+            if(reachTop || reachBottom){
+                this.yVelo = - this.yVelo
+            }
+        }
+
+        this.drawBall = function () {
+            const ANGLE_START = 0
+            const ANGLE_END = 2*Math.PI
+            ctx.beginPath()
+            ctx.arc(this.x,this.y,this.size, ANGLE_START, ANGLE_END)
+            ctx.strokeStyle = "red"
+            ctx.fillStyle =  "black"
+            ctx.stroke()
+            ctx.fill()
+        }
+    }
+    let ball = new Ball()
+    window.requestAnimationFrame(stepping)
+    function stepping() {               //auto di chuyển
+        dim()
+        ball.drawBall()
+        ball.roll()
+        window.requestAnimationFrame(stepping)
+
+        function dim() {                //xóa vệt đuôi
+            ctx.fillStyle = "white"
+            ctx.fillRect(0,0,canvas.width, canvas.height)
+        }
+    }
+
+</script>
+</body>
+</html>
