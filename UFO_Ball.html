@@ -13,17 +13,17 @@
     canvas.width = 800
     canvas.height = 600
 
-    let Ball = function (x, y, size, xVelo, yVelo) {
-        this.x = x || 400
-        this.y = y || 300
+    let Ball = function (x, y, size, xVelo, yVelo, color) {
+        this.x = x || Math.floor(Math.random() * 700 + 100)
+        this.y = y || Math.floor(Math.random() * 500 + 100)
         this.size = size || 20
-        this.xVelo = xVelo || 3
-        this.yVelo = yVelo || 1
-
+        this.xVelo = xVelo || Math.floor(Math.random() * 10)
+        this.yVelo = yVelo || Math.floor(Math.random() * 10)
+        this.color = color
         this.roll = function () {
             this.x += this.xVelo
             this.y += this.yVelo
-
+            //sét chuyển động quanh tường
             let reachLeft = this.x - this.size <= 0
             let reachRight = this.x + this.size >= canvas.width
             if (reachLeft || reachRight) {
@@ -42,25 +42,60 @@
             ctx.beginPath()
             ctx.arc(this.x, this.y, this.size, ANGLE_START, ANGLE_END)
             ctx.strokeStyle = "red"
-            ctx.fillStyle = "black"
+            ctx.fillStyle = this.color || "black"
             ctx.stroke()
             ctx.fill()
         }
     }
-    let ball = new Ball()
+    //let ball = [new Ball(), new Ball(), new Ball(), new Ball()] //chuyển sang mảng tạo nhiều bóng
     window.requestAnimationFrame(stepping)
 
-    function stepping() {               //auto di chuyển
+    let balls = createABulkOfBalls(5)
+
+    function createABulkOfBalls(numb) { //ngẫu nhiên của nhiều bóng
+        let balls = new Array(numb)
+        while (numb > 0) {
+            balls[--numb] = createRandomBall()
+        }
+        return balls
+
+        //khởi tạo mỗi quả bóng trong while sau đó return
+        function createRandomBall() {
+            let size = rdr(10, 30)
+            let x = rdr(size, canvas.width - size)
+            let y = rdr(size, canvas.height - size)
+            let xVelo = rdr(-10, 10)
+            let yVelo = rdr(-10, 10)
+
+            let red = rdr(0, 255)
+            let green = rdr(0, 255)
+            let blue = rdr(0, 255)
+            let color = 'rgb(' + red + ',' + green + ',' + blue + ')'
+
+            return new Ball(x, y, size, xVelo, yVelo, color)
+
+            function rdr(min, max) {
+                return Math.floor(Math.random() * (max - min) + min)
+            }
+        }
+    }
+
+
+    function stepping() {          //auto di chuyển
         dim()
-        ball.drawBall()
-        ball.roll()
+        for (let b of balls) {
+            b.drawBall()
+            b.roll()
+        }
         window.requestAnimationFrame(stepping)
 
         function dim() {                //xóa vệt đuôi
             ctx.fillStyle = "white"
             ctx.fillRect(0, 0, canvas.width, canvas.height)
         }
+
     }
+
 
 </script>
 </body>
