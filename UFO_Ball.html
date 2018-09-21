@@ -20,10 +20,22 @@
                     break
             }
         }
+
+        function leftMove() {
+
+        }
+
+        function rightMove() {
+
+        }
+
+        function doRead() {
+            window.addEventListener('keydown', moveSelection)
+        }
     </script>
 </head>
-<body>
-<canvas id="myCanvas" style="border: 10px solid #000; "></canvas>
+<body onload="doRead()">
+<canvas id="myCanvas" style="border: 10px solid #00f;  "></canvas>
 
 <script>
     const canvas = document.getElementById('myCanvas');
@@ -38,6 +50,7 @@
         this.xVelo = xVelo || Math.floor(Math.random() * 10)
         this.yVelo = yVelo || Math.floor(Math.random() * 10)
         this.color = color
+
         this.roll = function () {
             this.x += this.xVelo
             this.y += this.yVelo
@@ -94,9 +107,10 @@
         }
     }
     //let ball = [new Ball(), new Ball(), new Ball(), new Ball()] //chuyển sang mảng tạo nhiều bóng
-    setTimeout(stepping, 50)
-
+    window.requestAnimationFrame(stepping)
     let balls = createABulkOfBalls(10)
+
+    //let ufo = new UFO()
 
     function createABulkOfBalls(numb) { //ngẫu nhiên của nhiều bóng
         let balls = new Array(numb)
@@ -133,32 +147,45 @@
             b.roll()
             b.collisionDetect(balls)
         }
-        let ufo = new UFO(400, 400, 40)
-        ufo.drawUFO()
-        setTimeout(stepping, 20)
-
+        goiRocket().drawUFO()
+        window.requestAnimationFrame(stepping)
         function dim() {              //xóa vệt đuôi
-            ctx.fillStyle = "white"
-            ctx.fillRect(0, 0, canvas.width, canvas.height)
+            //ctx.fillStyle = "white"
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
         }
     }
 
 
     //Tàu vũ trụ
-    let UFO = function (x, y, size) {
-        this.xU = x || Math.floor(Math.random() * 700 + 100)
-        this.yU = y || Math.floor(Math.random() * 500 + 100)
-        this.sizeU = size || 20
+    let MyUFO = function (x, y, width, length, alpha) {
+        this.xU = x || window.innerWidth/2
+        this.yU = y || window.innerHeight/2
+        this.length = length || 20
+        this.width = width || 20
+        this.alpha = alpha || 0
 
         this.drawUFO = function () {
             const ctx1 = canvas.getContext("2d")
-            ctx1.beginPath()
+            ctx.beginPath()
             let img = new Image(100, 100)
             img.src = "image/rocket.png"
-            ctx1.rect(this.xU, this.yU, this.sizeU, this.sizeU)
-            ctx1.drawImage(img, this.xU, this.yU, 100, 100)
-            ctx1.closePath()
+            ctx.save()//cố định
+            ctx.translate(this.x + this.width / 2, this.y + this.length / 2)
+            ctx.rotate(this.alpha * Math.PI / 180)
+            if (this.alpha == 360) {
+                this.alpha = 0
+            }
+            this.alpha += 50
+            ctx.translate(-this.width / 2, -this.height / 2)
+            ctx.rect(this.xU, this.yU, this.width, this.length)
+            ctx.drawImage(img, this.xU, this.yU, 100, 100)
+            ctx.restore()
         }
+    }
+
+    function goiRocket() {
+        let ufo = new MyUFO()
+        return ufo
     }
 
 </script>
