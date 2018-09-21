@@ -3,15 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>UFO Shot Ball fly</title>
+    <script>
+        function moveSelection(event) {
+            switch (event.keyCode) {
+                case 37:
+                    leftMove()
+                    break
+                case 39:
+                    rightMove()
+                    break
+                case 38:
+                    topMove()
+                    break
+                case 40:
+                    bottomMove()
+                    break
+            }
+        }
+    </script>
 </head>
 <body>
-<canvas id="myCanvas" style="border: 1px solid #000"></canvas>
+<canvas id="myCanvas" style="border: 10px solid #000; "></canvas>
 
 <script>
     const canvas = document.getElementById('myCanvas');
     const ctx = canvas.getContext("2d")
-    canvas.width = 800
-    canvas.height = 600
+    canvas.width = window.innerWidth - 100
+    canvas.height = window.innerHeight - 100
 
     let Ball = function (x, y, size, xVelo, yVelo, color) {
         this.x = x || Math.floor(Math.random() * 700 + 100)
@@ -40,17 +58,45 @@
             const ANGLE_START = 0
             const ANGLE_END = 2 * Math.PI
             ctx.beginPath()
+            // let img = new Image(100, 100)
+            // img.src = "image/bird.png"
             ctx.arc(this.x, this.y, this.size, ANGLE_START, ANGLE_END)
-            ctx.strokeStyle = "red"
-            ctx.fillStyle = this.color || "black"
-            ctx.stroke()
+            //ctx.drawImage(img, this.x, this.y, 50, 50)
+            ctx.fillStyle = this.color
+            ctx.shadowOffX = 20
+            ctx.shadowOffY = 20
+            ctx.shadowBlur = 20
+            ctx.shadowColor = this.color
             ctx.fill()
+            ctx.closePath()
+        }
+
+        this.collisionDetect = function (balls) {
+            for (ball of balls) {
+                if (this != ball && collisioned(this, ball)) {
+                    this.xVelo = -this.xVelo
+                    this.yVelo = -this.yVelo
+                    ball.xVelo = -ball.xVelo
+                    ball.yVelo = -ball.yVelo
+                }
+            }
+
+            function collisioned(b1, b2) {//tính bán kính 2 vật thể đo va chạm
+                let sumOfRadius = b1.size + b2.size
+                return distance(b1, b2) <= sumOfRadius;
+            }
+
+            function distance(b1, b2) { //tính khoảng cách xy va chạm Pitago
+                let dx = Math.pow((b1.x - b2.x), 2)
+                let dy = Math.pow((b1.y - b2.y), 2)
+                return Math.sqrt(dx + dy)
+            }
         }
     }
     //let ball = [new Ball(), new Ball(), new Ball(), new Ball()] //chuyển sang mảng tạo nhiều bóng
-    window.requestAnimationFrame(stepping)
+    setTimeout(stepping, 50)
 
-    let balls = createABulkOfBalls(5)
+    let balls = createABulkOfBalls(10)
 
     function createABulkOfBalls(numb) { //ngẫu nhiên của nhiều bóng
         let balls = new Array(numb)
@@ -80,22 +126,40 @@
         }
     }
 
-
     function stepping() {          //auto di chuyển
         dim()
-        for (let b of balls) {
+        for (b of balls) {
             b.drawBall()
             b.roll()
+            b.collisionDetect(balls)
         }
-        window.requestAnimationFrame(stepping)
+        let ufo = new UFO(400, 400, 40)
+        ufo.drawUFO()
+        setTimeout(stepping, 20)
 
-        function dim() {                //xóa vệt đuôi
+        function dim() {              //xóa vệt đuôi
             ctx.fillStyle = "white"
             ctx.fillRect(0, 0, canvas.width, canvas.height)
         }
-
     }
 
+
+    //Tàu vũ trụ
+    let UFO = function (x, y, size) {
+        this.xU = x || Math.floor(Math.random() * 700 + 100)
+        this.yU = y || Math.floor(Math.random() * 500 + 100)
+        this.sizeU = size || 20
+
+        this.drawUFO = function () {
+            const ctx1 = canvas.getContext("2d")
+            ctx1.beginPath()
+            let img = new Image(100, 100)
+            img.src = "image/rocket.png"
+            ctx1.rect(this.xU, this.yU, this.sizeU, this.sizeU)
+            ctx1.drawImage(img, this.xU, this.yU, 100, 100)
+            ctx1.closePath()
+        }
+    }
 
 </script>
 </body>
