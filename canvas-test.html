@@ -15,7 +15,6 @@
     const ctx = canvas.getContext("2d")
     canvas.width = 800
     canvas.height = 600
-
     let Tanks = function (x, y, xV, yV, size) {
         this.x = x || Math.floor(Math.random() * 800)
         this.y = y || Math.floor(Math.random() * 600)
@@ -39,12 +38,19 @@
     _()
 
     function drawTanks(tank) {
+
         ctx.beginPath()
+        let img = new Image(10,10)
+        img.src = "image/rocket.png"
         ctx.arc(tank.x, tank.y, tank.size, 0, 2 * Math.PI, false)
-        ctx.strokeStyle = "black"
-        ctx.fillStyle = "#FF4500"
-        ctx.stroke()
+        ctx.drawImage(img,tank.x,tank.y,100,100)
+        ctx.shadowOffX = 10
+        ctx.shadowOffY = 10
+        ctx.shadowBlur = 20
+        ctx.shadowColor = "#000"
+        //ctx.stroke()
         ctx.fill()
+        ctx.closePath()
     }
 
     function _() {
@@ -53,7 +59,9 @@
         }
         setTimeout(function () {
             tank = moveBall()
-            touchBall()
+            for (t of tank){
+                touchBall(t, tank)
+            }
             ctx.clearRect(0, 0, canvas.width, canvas.height)
             _()
         }, 10)
@@ -72,17 +80,28 @@
             }
             t.nextStage()
             newtank.push(t.nextStage())
+
         }
         return newtank
     }
 
-    function touchBall() {
-        for (let i=0;i<tank.length -1; i++){
-            if (tank[i].x + tank[i].size == tank[tank.length -1].x + tank[tank.length -1].size
-                || tank[i].y+ tank[i].size == tank[tank.length -1].y+ tank[tank.length -1].size){
-                tank[i].setVelocity(Math.floor(Math.random() * 10), Math.floor(Math.random() * -10))
+    function touchBall(mTank, tanks) {
+        for (t of tanks){
+            if(!mTank && collisioned(mTank, t)){
+                t.xVelo = -t.xVelo
+                t.yVelo = -t.yVelo
+                mTank.xVelo = -mTank.xVelo
+                mTank.yVelo = -mTank.yVelo
             }
-            console.log(tank[i].x +" "+tank[i].y)
+        }
+        function collisioned(a1,a2) {
+            let sumOfRadius = a1.size + a2.size
+            return distance(a1, a2) <= sumOfRadius;
+        }
+        function distance(b1, b2) { //tính khoảng cách xy va chạm Pitago
+            let dx = Math.pow((b1.x - b2.x),2)
+            let dy = Math.pow((b1.y - b2.y),2)
+            return Math.sqrt(dx + dy)
         }
     }
 
