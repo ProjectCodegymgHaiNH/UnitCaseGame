@@ -5,7 +5,7 @@
     <title>UFO Shot Ball fly</title>
 </head>
 <body>
-<canvas id="myCanvas" style="border: 10px solid #00f;  "></canvas>
+<canvas id="myCanvas" style="border: 10px solid #00f; "></canvas>
 <script>
     const canvas = document.getElementById('myCanvas');
     canvas.width = window.innerWidth - 100
@@ -28,11 +28,23 @@
             let reachRight = this.x + this.size >= canvas.width
             if (reachLeft || reachRight) {
                 this.xVelo = -this.xVelo
+                if (this.x < this.size) {
+                    this.x = this.size
+                }
+                if (this.x > canvas.width - this.size) {
+                    this.x = canvas.width - this.size
+                }
             }
             let reachTop = this.y - this.size <= 0
             let reachBottom = this.y + this.size >= canvas.height
             if (reachTop || reachBottom) {
                 this.yVelo = -this.yVelo
+                if (this.y < this.size) {
+                    this.y = this.size
+                }
+                if (this.y > canvas.height - this.size) {
+                    this.y = canvas.height - this.size
+                }
             }
         }
 
@@ -75,16 +87,16 @@
             }
         }
 
-        this.disappear = function (balls) {
+        this.disappear = function (balls) {//xóa bóng
             let index = balls.indexOf(this)
-            balls.splice(index,1)//xóa bóng
+            balls.splice(index, 1)
         }
     }
     //let ball = [new Ball(), new Ball(), new Ball(), new Ball()] //chuyển sang mảng tạo nhiều bóng
 
     window.requestAnimationFrame(stepping)
     let so = 30
-    let balls  =createABulkOfBalls(so)
+    let balls = createABulkOfBalls(so)
 
     function createABulkOfBalls(numb) { //ngẫu nhiên của nhiều bóng
         let balls = new Array(numb)
@@ -155,7 +167,7 @@
                         seft.yU += 10
                         break
                     case 32:
-                        //shootBullets()
+                        bulletHeadShot()
                         break
                 }
             });
@@ -217,26 +229,26 @@
             }
 
             function collisioned(rect, ball) {
-                let left = rect.xU - ((rect.width-100)/2)
-                let right = rect.xU + ((rect.width+100)/2)
-                let top = rect.yU - ((rect.length-100)/2)
-                let bottom = rect.yU +((rect.length+100)/2)
+                let left = rect.xU - ((rect.width - 100) / 2)
+                let right = rect.xU + ((rect.width + 100) / 2)
+                let top = rect.yU - ((rect.length - 100) / 2)
+                let bottom = rect.yU + ((rect.length + 100) / 2)
                 let px = ball.x
                 let py = ball.y
-                if (px < left){
+                if (px < left) {
                     px = left
-                }else if(px > right){
+                } else if (px > right) {
                     px = right
                 }
-                if (py < top){
+                if (py < top) {
                     py = top
-                }else if(py > bottom){
+                } else if (py > bottom) {
                     py = bottom
                 }
 
                 let dx = ball.x - px
                 let dy = ball.y - py
-                return (dx*dx + dy*dy) <= ball.size * ball.size
+                return (dx * dx + dy * dy) <= ball.size * ball.size
             }
         }
         //this.shootBullets = function () {}
@@ -253,8 +265,8 @@
         this.xVelo = xVelo || Math.floor(Math.random() * 10)
         this.yVelo = yVelo || Math.floor(Math.random() * 10)
         this.color = color || "red"
-        
-        this.drawBullet = function () {
+        let seft = this
+        this.draw = function () {
             const ANGLE_START = 0
             const ANGLE_END = 2 * Math.PI
             ctx.beginPath()
@@ -264,11 +276,65 @@
             ctx.fill()
         }
         this.roll = function () {
-            this.x ++
-            this.y ++
+            this.x++
+            this.y++
+        }
+        this.collisionDetect = function (balls) {
+            for (let b of balls){
+                if (b == this){
+                    if (b.x <0 || b.x> canvas.width || b.y<0 || b.y >canvas.height){
+                        b.disappearBullet(balls)
+                    }
+                }
+                else if (this != b && collisioned(this, b)) {
+                    b.disappear(balls)
+                    this.disappearBullet(balls)
+                }
+
+                function collisioned(b1, b2) {//tính bán kính 2 vật thể đo va chạm
+                    let sumOfRadius = b1.size + b2.size
+                    return distance(b1, b2) <= sumOfRadius;
+                }
+
+                function distance(b1, b2) { //tính khoảng cách xy va chạm Pitago
+                    let dx = Math.pow((b1.x - b2.x), 2)
+                    let dy = Math.pow((b1.y - b2.y), 2)
+                    return Math.sqrt(dx + dy)
+                }
+            }
+        }
+        this.disappearBullet = function (balls) {//xóa bóng
+            let index = balls.indexOf(this)
+            balls.splice(index, 1)
+        }
+
+    }
+    this.roll = function () {}
+
+    function createRandomBall() {
+        let size = 5
+        let x = ufo.xU + 100
+        let y = ufo.yU + 100
+        let xVelo = rdr(-10, 10)
+        let yVelo = rdr(-10, 10)
+
+        let red = rdr(0, 255)
+        let green = rdr(0, 255)
+        let blue = rdr(0, 255)
+        //let color = 'rgb(' + red + ',' + green + ',' + blue + ')'
+        let color = "red"
+
+        return new Bullet(x, y, size, xVelo, yVelo, color)
+
+        function rdr(min, max) {
+            return Math.floor(Math.random() * (max - min) + min)
         }
     }
-    let bullet = new Bullet()
+
+    function bulletHeadShot() {
+        balls.push(createRandomBall())
+
+    }
 
 </script>
 </body>
