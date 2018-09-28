@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
     <title>UFO Shot Ball fly</title>
 </head>
 <body>
@@ -287,8 +288,8 @@
         }
 
         this.roll = function () {
-            this.x += xVelo
-            this.y += yVelo
+            this.x += xVelo*2
+            this.y += yVelo*2
             console.log(this.x + " - " + this.y)
         }
 
@@ -325,13 +326,12 @@
 
     }
 
-    this.roll = function () {}
 
     function createBullet() {
         let size = 5
         let x = ufo.xU + 100
         let y = ufo.yU + 100
-        let xVelo = rdr(1, 10)
+        let xVelo = rdr(0, 10)
         let yVelo = rdr(0, 10)
         let color = "red"
 
@@ -349,10 +349,11 @@
     function displayScoreAndLife() {
         let ctx = canvas.getContext("2d");
         ctx.beginPath()
-        ctx.font = "20px Orbitron";
-        ctx.fillStyle = "red";
-        ctx.fillText("Điểm số :" + scores, 10, 20);
-        ctx.fillText("Mạng :" + life, 10, 50);
+        ctx.font = "30px Orbitron";
+        //ctx.shadowColor = "blue"
+        ctx.fillStyle = "yellow";
+        ctx.fillText("DIEM SO :" + scores, 10, 30);
+        ctx.fillText("MANG :" + life, 10, 60);
     }
 
     function victory() {
