@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46f79ec0-cdd1-490e-b3ad-bd75715463a6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/image/source.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bouncing Ball Game.html" beforeDir="false" afterPath="$PROJECT_DIR$/Bouncing Ball Game.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code-hoang/ship.js" beforeDir="false" afterPath="$PROJECT_DIR$/code-hoang/ship.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/bomb.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -25,44 +29,45 @@
           <entry key="project.open.time.11" value="3" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="22" />
+          <entry key="project.opened" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="2" />
-          <entry key="html" value="11" />
+          <entry key="html" value="13" />
           <entry key="jpg" value="1" />
-          <entry key="js" value="13" />
+          <entry key="js" value="14" />
           <entry key="png" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="11" />
+          <entry key="HTML" value="13" />
           <entry key="Image" value="2" />
-          <entry key="JavaScript" value="13" />
+          <entry key="JavaScript" value="14" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="14" />
-          <entry key="html" value="12001" />
+          <entry key="html" value="13001" />
           <entry key="js" value="1" />
-          <entry key="txt" value="225" />
+          <entry key="txt" value="301" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="12001" />
+          <entry key="HTML" value="13001" />
           <entry key="JavaScript" value="1" />
-          <entry key="PLAIN_TEXT" value="239" />
+          <entry key="PLAIN_TEXT" value="315" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -74,8 +79,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="72" column="76" selection-start-line="72" selection-start-column="76" selection-end-line="72" selection-end-column="76" />
+            <state relative-caret-position="401">
+              <caret line="247" column="56" selection-start-line="247" selection-start-column="56" selection-end-line="247" selection-end-column="56" />
               <folding>
                 <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -84,18 +89,9 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/code-hoang/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="3" column="28" lean-forward="true" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vuong-tron.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
+            <state relative-caret-position="-137">
               <caret line="37" column="23" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
             </state>
           </provider>
@@ -104,8 +100,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/code-hoang/game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="145" column="31" lean-forward="true" selection-start-line="145" selection-start-column="31" selection-end-line="146" selection-end-column="29" />
+            <state relative-caret-position="424">
+              <caret line="147" column="29" selection-start-line="147" selection-start-column="26" selection-end-line="147" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Bouncing Ball Game.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -124,6 +132,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="697">
               <caret line="41" column="45" selection-start-line="41" selection-start-column="45" selection-end-line="41" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/code-hoang/ship.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="67" column="20" selection-start-line="67" selection-start-column="12" selection-end-line="67" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -169,15 +186,15 @@
         <option value="$PROJECT_DIR$/test_caro.html" />
         <option value="$PROJECT_DIR$/canvas-test.html" />
         <option value="$PROJECT_DIR$/vuong-tron.html" />
-        <option value="$PROJECT_DIR$/code-hoang/ship.js" />
         <option value="$PROJECT_DIR$/code-hoang/alert.js" />
         <option value="$PROJECT_DIR$/code-hoang/ball.js" />
         <option value="$PROJECT_DIR$/code-hoang/explosion.js" />
         <option value="$PROJECT_DIR$/code-hoang/game.js" />
         <option value="$PROJECT_DIR$/code-hoang/index.html" />
-        <option value="$PROJECT_DIR$/Bouncing Ball Game.html" />
         <option value="$PROJECT_DIR$/code-hoang/bullet.js" />
         <option value="$PROJECT_DIR$/UFO_Ball.html" />
+        <option value="$PROJECT_DIR$/code-hoang/ship.js" />
+        <option value="$PROJECT_DIR$/Bouncing Ball Game.html" />
         <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
@@ -216,7 +233,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -227,17 +243,13 @@
             <path>
               <item name="UnitCase" type="b2602c69:ProjectViewProjectNode" />
               <item name="UnitCase" type="462c0819:PsiDirectoryNode" />
-              <item name="code-hoang" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UnitCase" type="b2602c69:ProjectViewProjectNode" />
-              <item name="UnitCase" type="462c0819:PsiDirectoryNode" />
-              <item name="image" type="462c0819:PsiDirectoryNode" />
+              <item name="audio" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -296,7 +308,8 @@
       <workItem from="1537946372327" duration="2983000" />
       <workItem from="1537970725495" duration="10009000" />
       <workItem from="1538013350832" duration="20648000" />
-      <workItem from="1538100903412" duration="5802000" />
+      <workItem from="1538100903412" duration="8357000" />
+      <workItem from="1538117436615" duration="10144000" />
     </task>
     <task id="LOCAL-00001" summary="bai UFO ball">
       <created>1537453064624</created>
@@ -375,11 +388,39 @@
       <option name="project" value="LOCAL" />
       <updated>1538108244085</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fix lỗi nẩy bóng khỏi đạn">
+      <created>1538109197160</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1538109197160</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fix lỗi nẩy bóng khỏi đạn">
+      <created>1538110227517</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1538110227517</updated>
+    </task>
+    <task id="LOCAL-00014" summary="fix đường viền">
+      <created>1538117844122</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1538117844122</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fix đường viền và đạn">
+      <created>1538123044644</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1538123044644</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132407000" />
+    <option name="totallyTimeSpent" value="145106000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -439,7 +480,10 @@
     <MESSAGE value="bắn đạn và vỡ bóng" />
     <MESSAGE value="update fix lỗi đạn" />
     <MESSAGE value="update điểm số + mạng và chiến thắng" />
-    <option name="LAST_COMMIT_MESSAGE" value="update điểm số + mạng và chiến thắng" />
+    <MESSAGE value="fix lỗi nẩy bóng khỏi đạn" />
+    <MESSAGE value="fix đường viền" />
+    <MESSAGE value="fix đường viền và đạn" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix đường viền và đạn" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -457,6 +501,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="33">
           <caret line="30" column="17" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="17" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -487,20 +534,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bouncing Ball Game.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/image/earth.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/code-hoang/ship.js">
+    <entry file="file://$PROJECT_DIR$/code-hoang/explosion.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="66" column="29" selection-start-line="66" selection-start-column="29" selection-end-line="66" selection-end-column="29" />
+        <state relative-caret-position="306">
+          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -511,6 +551,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/code-hoang/game.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="147" column="29" selection-start-line="147" selection-start-column="26" selection-end-line="147" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code-hoang/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="14" selection-start-line="8" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vuong-tron.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-137">
+          <caret line="37" column="23" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/code-hoang/ball.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
@@ -518,38 +579,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/code-hoang/explosion.js">
+    <entry file="file://$PROJECT_DIR$/code-hoang/ship.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+        <state relative-caret-position="135">
+          <caret line="67" column="20" selection-start-line="67" selection-start-column="12" selection-end-line="67" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/code-hoang/index.html">
+    <entry file="file://$PROJECT_DIR$/Bouncing Ball Game.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="3" column="28" lean-forward="true" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vuong-tron.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="37" column="23" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code-hoang/game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="145" column="31" lean-forward="true" selection-start-line="145" selection-start-column="31" selection-end-line="146" selection-end-column="29" />
+        <state relative-caret-position="340">
+          <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="72" column="76" selection-start-line="72" selection-start-column="76" selection-end-line="72" selection-end-column="76" />
+        <state relative-caret-position="401">
+          <caret line="247" column="56" selection-start-line="247" selection-start-column="56" selection-end-line="247" selection-end-column="56" />
           <folding>
             <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>

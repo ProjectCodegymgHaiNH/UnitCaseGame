@@ -88,7 +88,6 @@ let Ship = function (left, top, size, imgId) {
             }
             return false;
         }
-
     }
     this.moveOnKeyDown = function () {
         $(document).keydown(function (event) {
