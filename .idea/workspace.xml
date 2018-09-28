@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46f79ec0-cdd1-490e-b3ad-bd75715463a6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/image/source.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bouncing Ball Game.html" beforeDir="false" afterPath="$PROJECT_DIR$/Bouncing Ball Game.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code-hoang/ship.js" beforeDir="false" afterPath="$PROJECT_DIR$/code-hoang/ship.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/bomb.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -60,14 +55,14 @@
           <entry key="gitignore" value="14" />
           <entry key="html" value="13001" />
           <entry key="js" value="1" />
-          <entry key="txt" value="301" />
+          <entry key="txt" value="317" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="13001" />
           <entry key="JavaScript" value="1" />
-          <entry key="PLAIN_TEXT" value="315" />
+          <entry key="PLAIN_TEXT" value="331" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -79,8 +74,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="247" column="56" selection-start-line="247" selection-start-column="56" selection-end-line="247" selection-end-column="56" />
+            <state relative-caret-position="374">
+              <caret line="103" column="32" selection-start-line="103" selection-start-column="11" selection-end-line="103" selection-end-column="32" />
               <folding>
                 <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -309,7 +304,7 @@
       <workItem from="1537970725495" duration="10009000" />
       <workItem from="1538013350832" duration="20648000" />
       <workItem from="1538100903412" duration="8357000" />
-      <workItem from="1538117436615" duration="10144000" />
+      <workItem from="1538117436615" duration="11134000" />
     </task>
     <task id="LOCAL-00001" summary="bai UFO ball">
       <created>1537453064624</created>
@@ -416,11 +411,25 @@
       <option name="project" value="LOCAL" />
       <updated>1538123044644</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="update âm thanh">
+      <created>1538128468451</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1538128468451</updated>
+    </task>
+    <task id="LOCAL-00017" summary="update âm thanh">
+      <created>1538128877455</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1538128877455</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145106000" />
+    <option name="totallyTimeSpent" value="146096000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -483,7 +492,8 @@
     <MESSAGE value="fix lỗi nẩy bóng khỏi đạn" />
     <MESSAGE value="fix đường viền" />
     <MESSAGE value="fix đường viền và đạn" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix đường viền và đạn" />
+    <MESSAGE value="update âm thanh" />
+    <option name="LAST_COMMIT_MESSAGE" value="update âm thanh" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -598,8 +608,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="247" column="56" selection-start-line="247" selection-start-column="56" selection-end-line="247" selection-end-column="56" />
+        <state relative-caret-position="374">
+          <caret line="103" column="32" selection-start-line="103" selection-start-column="11" selection-end-line="103" selection-end-column="32" />
           <folding>
             <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
