@@ -53,16 +53,16 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="14" />
-          <entry key="html" value="11929" />
+          <entry key="html" value="12001" />
           <entry key="js" value="1" />
-          <entry key="txt" value="165" />
+          <entry key="txt" value="225" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="11929" />
+          <entry key="HTML" value="12001" />
           <entry key="JavaScript" value="1" />
-          <entry key="PLAIN_TEXT" value="179" />
+          <entry key="PLAIN_TEXT" value="239" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -74,8 +74,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="140" column="60" selection-start-line="140" selection-start-column="60" selection-end-line="140" selection-end-column="60" />
+            <state relative-caret-position="51">
+              <caret line="72" column="76" selection-start-line="72" selection-start-column="76" selection-end-line="72" selection-end-column="76" />
               <folding>
                 <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -296,7 +296,7 @@
       <workItem from="1537946372327" duration="2983000" />
       <workItem from="1537970725495" duration="10009000" />
       <workItem from="1538013350832" duration="20648000" />
-      <workItem from="1538100903412" duration="4811000" />
+      <workItem from="1538100903412" duration="5802000" />
     </task>
     <task id="LOCAL-00001" summary="bai UFO ball">
       <created>1537453064624</created>
@@ -368,11 +368,18 @@
       <option name="project" value="LOCAL" />
       <updated>1538107158767</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="update điểm số + mạng và chiến thắng">
+      <created>1538108244085</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1538108244085</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131416000" />
+    <option name="totallyTimeSpent" value="132407000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -431,7 +438,8 @@
     <MESSAGE value="bai UFO ball move UFO và xoay + di chuyen + an ban" />
     <MESSAGE value="bắn đạn và vỡ bóng" />
     <MESSAGE value="update fix lỗi đạn" />
-    <option name="LAST_COMMIT_MESSAGE" value="update fix lỗi đạn" />
+    <MESSAGE value="update điểm số + mạng và chiến thắng" />
+    <option name="LAST_COMMIT_MESSAGE" value="update điểm số + mạng và chiến thắng" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -540,8 +548,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="140" column="60" selection-start-line="140" selection-start-column="60" selection-end-line="140" selection-end-column="60" />
+        <state relative-caret-position="51">
+          <caret line="72" column="76" selection-start-line="72" selection-start-column="76" selection-end-line="72" selection-end-column="76" />
           <folding>
             <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>

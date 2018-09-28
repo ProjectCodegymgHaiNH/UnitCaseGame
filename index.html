@@ -21,6 +21,7 @@
         this.xVelo = xVelo || Math.floor(Math.random() * 5)
         this.yVelo = yVelo || Math.floor(Math.random() * 5)
         this.color = color
+        let seft = this
 
         this.roll = function () {
             this.x += this.xVelo
@@ -69,6 +70,9 @@
 
         this.collisionDetect = function (balls) {
             for (ball of balls) {
+                if (this != ball && ball.size <=5 && collisioned(this, ball)) {
+                    seft.disappear(balls)
+                }
                 if (this != ball && collisioned(this, ball)) {
                     this.xVelo = -this.xVelo - Math.floor(Math.random() * 3)
                     this.yVelo = -this.yVelo - Math.floor(Math.random() * 3)
@@ -137,9 +141,10 @@
             b.collisionDetect(balls)
         }
         displayScoreAndLife()
-        if (balls.length == 1){
+        if (balls.length == 1) {
             ctx.clearRect(0, 0, canvas.width, canvas.height)
             victory()
+            displayScoreAndLife()
         }
         window.requestAnimationFrame(stepping)
     }
@@ -320,8 +325,7 @@
 
     }
 
-    this.roll = function () {
-    }
+    this.roll = function () {}
 
     function createBullet() {
         let size = 5
@@ -347,15 +351,16 @@
         ctx.beginPath()
         ctx.font = "20px Orbitron";
         ctx.fillStyle = "red";
-        ctx.fillText("Điểm số :"+scores, 10, 20);
-        ctx.fillText("Mạng :"+life, 10, 50);
+        ctx.fillText("Điểm số :" + scores, 10, 20);
+        ctx.fillText("Mạng :" + life, 10, 50);
     }
+
     function victory() {
         let ctx = canvas.getContext("2d");
         ctx.beginPath()
         ctx.font = "100px Orbitron";
         ctx.fillStyle = "blue";
-        ctx.fillText("BẠN ĐÃ CHIẾN THẮNG", canvas.width/5, canvas.height/2);
+        ctx.fillText("BẠN ĐÃ CHIẾN THẮNG", canvas.width / 5, canvas.height / 2);
     }
 </script>
 </body>
