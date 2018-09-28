@@ -5,11 +5,13 @@
     <title>UFO Shot Ball fly</title>
 </head>
 <body>
-<canvas id="myCanvas" style="border: 10px solid #00f; "></canvas>
+<canvas id="myCanvas" style="border: 1px solid #00f; "></canvas>
 <script>
     const canvas = document.getElementById('myCanvas');
     canvas.width = window.innerWidth - 100
     canvas.height = window.innerHeight - 100
+    let scores = 0
+    let life = 100
 
     let Ball = function (x, y, size, xVelo, yVelo, color) {
         const ctx = canvas.getContext("2d")
@@ -135,6 +137,10 @@
             b.collisionDetect(balls)
         }
         displayScoreAndLife()
+        if (balls.length == 1){
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
+            victory()
+        }
         window.requestAnimationFrame(stepping)
     }
 
@@ -221,9 +227,8 @@
         this.collisionDetect = function (balls) {
             for (ball of balls) {
                 if (this != ball && collisioned(this, ball)) {
-                    ball.xVelo = 0
-                    ball.yVelo = 0
                     ball.disappear(balls)
+                    life--
                 }
             }
 
@@ -292,6 +297,7 @@
                 if (b != seft && collisioned(seft, b)) {
                     b.disappear(balls)
                     seft.disappear(balls)
+                    scores++
                 }
 
                 function collisioned(b1, b2) {//tính bán kính 2 vật thể đo va chạm
@@ -339,9 +345,17 @@
     function displayScoreAndLife() {
         let ctx = canvas.getContext("2d");
         ctx.beginPath()
-        ctx.font = "50px arial";
-        ctx.fillStyle = "black";
-        ctx.fillText("Bắn ít đạn thôi ko lag", 500, 100);
+        ctx.font = "20px Orbitron";
+        ctx.fillStyle = "red";
+        ctx.fillText("Điểm số :"+scores, 10, 20);
+        ctx.fillText("Mạng :"+life, 10, 50);
+    }
+    function victory() {
+        let ctx = canvas.getContext("2d");
+        ctx.beginPath()
+        ctx.font = "100px Orbitron";
+        ctx.fillStyle = "blue";
+        ctx.fillText("BẠN ĐÃ CHIẾN THẮNG", canvas.width/5, canvas.height/2);
     }
 </script>
 </body>
