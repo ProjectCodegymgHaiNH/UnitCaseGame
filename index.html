@@ -16,8 +16,8 @@
         this.x = x || Math.floor(Math.random() * 700 + 100)
         this.y = y || Math.floor(Math.random() * 500 + 100)
         this.size = size || 20
-        this.xVelo = xVelo || Math.floor(Math.random() * 10)
-        this.yVelo = yVelo || Math.floor(Math.random() * 10)
+        this.xVelo = xVelo || Math.floor(Math.random() * 5)
+        this.yVelo = yVelo || Math.floor(Math.random() * 5)
         this.color = color
 
         this.roll = function () {
@@ -68,8 +68,8 @@
         this.collisionDetect = function (balls) {
             for (ball of balls) {
                 if (this != ball && collisioned(this, ball)) {
-                    this.xVelo = -this.xVelo
-                    this.yVelo = -this.yVelo
+                    this.xVelo = -this.xVelo - Math.floor(Math.random() * 3)
+                    this.yVelo = -this.yVelo - Math.floor(Math.random() * 3)
                     ball.xVelo = -ball.xVelo
                     ball.yVelo = -ball.yVelo
                 }
@@ -129,11 +129,12 @@
     function stepping() {          //auto di chuyển
         const ctx = canvas.getContext("2d")
         ctx.clearRect(0, 0, canvas.width, canvas.height)
-        for (b of balls) {
+        for (let b of balls) {
             b.draw()
             b.roll()
             b.collisionDetect(balls)
         }
+        displayScoreAndLife()
         window.requestAnimationFrame(stepping)
     }
 
@@ -151,19 +152,19 @@
             window.addEventListener('keydown', function (event) {
                 switch (event.keyCode) {
                     case 37:
-                        seft.xVelo = -1
+                        seft.xVelo = -5
                         seft.xU -= 10
                         break
                     case 39:
-                        seft.xVelo = 1
+                        seft.xVelo = 5
                         seft.xU += 10
                         break
                     case 38:
-                        seft.yVelo = -1
+                        seft.yVelo = -5
                         seft.yU -= 10
                         break
                     case 40:
-                        seft.yVelo = 1
+                        seft.yVelo = 5
                         seft.yU += 10
                         break
                     case 32:
@@ -171,7 +172,6 @@
                         break
                 }
             });
-            console.log(this.xU + " " + this.yU)
         };
 
         this.roll = function () {
@@ -196,7 +196,6 @@
                 seft.yU = canvas.height - seft.length
                 seft.yVelo = -seft.yVelo
             }
-            console.log(seft.xU + " - " + seft.yU)
         }
 
         this.draw = function () {
@@ -251,7 +250,8 @@
                 return (dx * dx + dy * dy) <= ball.size * ball.size
             }
         }
-        //this.shootBullets = function () {}
+        this.disappear = function (balls) {
+        }
     };
     let ufo = new MyUFO();
     ufo.move()
@@ -262,8 +262,8 @@
         this.x = x || ufo.xU
         this.y = y || ufo.yU
         this.size = size || 5
-        this.xVelo = xVelo || Math.floor(Math.random() * 10)
-        this.yVelo = yVelo || Math.floor(Math.random() * 10)
+        this.xVelo = xVelo || 1
+        this.yVelo = yVelo || 1
         this.color = color || "red"
         let seft = this
         this.draw = function () {
@@ -275,20 +275,23 @@
             ctx.shadowColor = this.color
             ctx.fill()
         }
+
         this.roll = function () {
-            this.x++
-            this.y++
+            this.x += xVelo
+            this.y += yVelo
+            console.log(this.x + " - " + this.y)
         }
+
         this.collisionDetect = function (balls) {
-            for (let b of balls){
-                if (b == this){
-                    if (b.x <0 || b.x> canvas.width || b.y<0 || b.y >canvas.height){
-                        b.disappearBullet(balls)
+            for (let b of balls) {
+                if (b == seft) {
+                    if (b.x < 0 || b.x > canvas.width || b.y < 0 || b.y > canvas.height) {
+                        b.disappear(balls)
                     }
                 }
-                else if (this != b && collisioned(this, b)) {
+                if (b != seft && collisioned(seft, b)) {
                     b.disappear(balls)
-                    this.disappearBullet(balls)
+                    seft.disappear(balls)
                 }
 
                 function collisioned(b1, b2) {//tính bán kính 2 vật thể đo va chạm
@@ -303,25 +306,23 @@
                 }
             }
         }
-        this.disappearBullet = function (balls) {//xóa bóng
+
+        this.disappear = function (balls) {//xóa bóng
             let index = balls.indexOf(this)
             balls.splice(index, 1)
         }
 
     }
-    this.roll = function () {}
 
-    function createRandomBall() {
+    this.roll = function () {
+    }
+
+    function createBullet() {
         let size = 5
         let x = ufo.xU + 100
         let y = ufo.yU + 100
-        let xVelo = rdr(-10, 10)
-        let yVelo = rdr(-10, 10)
-
-        let red = rdr(0, 255)
-        let green = rdr(0, 255)
-        let blue = rdr(0, 255)
-        //let color = 'rgb(' + red + ',' + green + ',' + blue + ')'
+        let xVelo = rdr(1, 10)
+        let yVelo = rdr(0, 10)
         let color = "red"
 
         return new Bullet(x, y, size, xVelo, yVelo, color)
@@ -332,10 +333,16 @@
     }
 
     function bulletHeadShot() {
-        balls.push(createRandomBall())
-
+        balls.push(createBullet())
     }
 
+    function displayScoreAndLife() {
+        let ctx = canvas.getContext("2d");
+        ctx.beginPath()
+        ctx.font = "50px arial";
+        ctx.fillStyle = "black";
+        ctx.fillText("Bắn ít đạn thôi ko lag", 500, 100);
+    }
 </script>
 </body>
 </html>
