@@ -9,8 +9,8 @@
 <canvas id="myCanvas" style="border: 1px solid #00f; "></canvas>
 <script>
     const canvas = document.getElementById('myCanvas');
-    canvas.width = window.innerWidth - 100
-    canvas.height = window.innerHeight - 100
+    canvas.width = 1050 * 2 - 100
+    canvas.height = 500 * 2 - 100
     let scores = 0
     let life = 100
 
@@ -71,7 +71,7 @@
 
         this.collisionDetect = function (balls) {
             for (ball of balls) {
-                if (this != ball && ball.size <=5 && collisioned(this, ball)) {
+                if (this != ball && ball.size <= 5 && collisioned(this, ball)) {
                     seft.disappear(balls)
                 }
                 if (this != ball && collisioned(this, ball)) {
@@ -288,8 +288,8 @@
         }
 
         this.roll = function () {
-            this.x += xVelo*2
-            this.y += yVelo*2
+            this.x += xVelo * 2
+            this.y += yVelo * 2
             console.log(this.x + " - " + this.y)
         }
 
@@ -326,13 +326,12 @@
 
     }
 
-
     function createBullet() {
         let size = 5
         let x = ufo.xU + 100
         let y = ufo.yU + 100
         let xVelo = rdr(0, 10)
-        let yVelo = rdr(0, 10)
+        let yVelo = rdr(1, 10)
         let color = "red"
 
         return new Bullet(x, y, size, xVelo, yVelo, color)
