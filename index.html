@@ -12,7 +12,7 @@
     canvas.width = 1050 * 2 - 100
     canvas.height = 500 * 2 - 100
     let scores = 0
-    let life = 100
+    let life = 10
 
     let Ball = function (x, y, size, xVelo, yVelo, color) {
         const ctx = canvas.getContext("2d")
@@ -142,6 +142,11 @@
             b.collisionDetect(balls)
         }
         displayScoreAndLife()
+        if (life <= 0) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
+            lost()
+            displayScoreAndLife()
+        }
         if (balls.length == 1) {
             ctx.clearRect(0, 0, canvas.width, canvas.height)
             victory()
@@ -326,6 +331,13 @@
 
     }
 
+    function createNewBullet() {
+        let size = 5
+        let speed = 8
+        let bulletLeft = speed * Math.sin(size)
+        let bulletTop = speed * Math.cos(size)
+    }
+
     function createBullet() {
         let size = 5
         let x = ufo.xU + 100
@@ -351,8 +363,19 @@
         ctx.font = "30px Orbitron";
         //ctx.shadowColor = "blue"
         ctx.fillStyle = "yellow";
-        ctx.fillText("DIEM SO :" + scores, 10, 30);
-        ctx.fillText("MANG :" + life, 10, 60);
+        ctx.fillText("DIEM SO : " + scores, 10, 30);
+        ctx.fillText("MANG : " + lifeNow(life), 10, 60);
+        ctx.font = "20px Arial";
+        ctx.fillStyle = "blue";
+        ctx.fillText("USER HÃY THU NHỎ MÀN HÌNH ĐỂ TRẢI NGHIỆM CHƠI TỐT HƠN", 500, 30)
+
+        function lifeNow(a) {
+            let str = ""
+            for (let i = a; i > 0; i--) {
+                str += "♥"
+            }
+            return str
+        }
     }
 
     function victory() {
@@ -361,6 +384,14 @@
         ctx.font = "100px Orbitron";
         ctx.fillStyle = "blue";
         ctx.fillText("BẠN ĐÃ CHIẾN THẮNG", canvas.width / 5, canvas.height / 2);
+    }
+
+    function lost() {
+        let ctx = canvas.getContext("2d");
+        ctx.beginPath()
+        ctx.font = "100px Orbitron";
+        ctx.fillStyle = "blue";
+        ctx.fillText("BẠN CHƠI GÀ VÃI", canvas.width / 5, canvas.height / 2);
     }
 </script>
 </body>
